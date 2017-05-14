@@ -18,7 +18,7 @@ describe('Mammal class', function() {
   it('should have an array called offspring', function() {
     expect(myMammal.offspring).toEqual([]);
   });
-  
+
   // myMammal's internal prototype ([[Prototype]] || __proto__) is linked to Mammal.prototype
   it("should have a sayHello function on it's prototype", function() {
     expect(myMammal.sayHello()).toEqual("My name is Joe!");
@@ -30,6 +30,7 @@ describe('Mammal class', function() {
     var child;
     child = myMammal.haveBaby();
     expect(child.name).toEqual('Baby Joe');
+    expect(child.sayHello()).toEqual('My name is Baby Joe!');
     expect(myMammal.offspring).toEqual([child]);
 
     // these functions should be on Mammal.prototype
@@ -64,9 +65,9 @@ describe('Cat class', function() {
   it('should have a color in its constructor function', function() {
     expect(cat.color).toEqual('yellow');
   });
-  
+
   // Testing if new Mammal vs Object.create(Mammal) is used to set up the chain or inheritance
-  // of the prototype chain.  (In the lecture videos we covered how to impelement inheritance 
+  // of the prototype chain.  (In the lecture videos we covered how to impelement inheritance
   // using the classical model, in the earlier videos we demonstrated how to chain prototypes with
   // Object.create() )
 
